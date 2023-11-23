@@ -1,0 +1,43 @@
+<div class="container col-sm-10 align-center py-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-10">
+                    <h3>FireBase Data</h3>
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/add-data']" class="btn btn-success text-end">ADD DATA</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container align-center">
+                <table datatable [dtOptions]="dtoptions"[dtTrigger]="dttrigger" class="table table-secondary" *ngIf="length > 0">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>CONTACT</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of data">
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.contact }}</td>
+                            <td>
+                                <button class="btn btn-info" (click)="updateData(i.id)">
+                                    Update
+                                </button>
+                                <button class="btn btn-danger" (click)="deleteData(i.id)">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
